@@ -1,19 +1,16 @@
-﻿string name = "Ewa";
-char sex = 'F';//kobieta - F, mężczyzna - M
-int age = 28;
-if (sex == 'F' && age < 30)
+﻿int number = 36596;
+string numberInString = number.ToString();
+int[] counts = new int[10];
+foreach (char digitchar in numberInString)
 {
-    Console.WriteLine("Kobieta poniżej 30 lat");
+    if (char.IsDigit(digitchar))
+    {
+        int digit = (int)char.GetNumericValue(digitchar);
+        counts[digit]++;
+    }
 }
-else if (name == "Ewa" && sex == 'F' && age == 33)
+Console.WriteLine("Liczba wystąpień każdej cyfry w podanej liczbie ");
+for (int i = 0; i < 10; i++)
 {
-    Console.WriteLine("Ewa, lat 33");
-}
-else if (sex == 'M' && age < 18)
-{
-    Console.WriteLine("Niepełnoletni mężczyzna");
-}
-else
-{
-    Console.WriteLine("Osoba nie spełniająca kryteriów");
+    Console.WriteLine($"Cyfra {i}: {counts[i]} razy");
 }
